@@ -4,6 +4,6 @@
 
 <h2>会員情報</h2>
 
-<a href="register.jsp" >登録</a>　<a href="search.jsp" >検索</a>
+<a href="regist.jsp" >登録</a>　<a href="search.jsp" >検索</a>
 
 <%@ include file="../footer.html" %>

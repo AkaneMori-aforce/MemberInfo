@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.html" %>
+<script type="text/javascript" src="/MemberInformation/js/script.js"></script>
 
 <h2>会員情報検索</h2>
 
@@ -30,16 +31,16 @@
 	<%String email = (String) request.getAttribute("email_address");%>
 	<%String job = (String) request.getAttribute("job");%>
 	
-	<% request.setAttribute("id",id); %>
-	<% request.setAttribute("last_name",last_name); %>
-	<% request.setAttribute("first_name",first_name); %>
-	<% request.setAttribute("gender",gender); %>
-	<% request.setAttribute("birth_year",birth_year); %>
-	<% request.setAttribute("birth_month",birth_month); %>
-	<% request.setAttribute("birth_day",birth_day); %>
-	<% request.setAttribute("tel",tel); %>
-	<% request.setAttribute("email",email); %>
-	<% request.setAttribute("job",job); %>
+	<% session.setAttribute("id",id); %>
+	<% session.setAttribute("last_name",last_name); %>
+	<% session.setAttribute("first_name",first_name); %>
+	<% session.setAttribute("gender",gender); %>
+	<% session.setAttribute("birth_year",birth_year); %>
+	<% session.setAttribute("birth_month",birth_month); %>
+	<% session.setAttribute("birth_day",birth_day); %>
+	<% session.setAttribute("tel",tel); %>
+	<% session.setAttribute("email",email); %>
+	<% session.setAttribute("job",job); %>
 	
     <table border="1">
     	<tr>
@@ -49,7 +50,7 @@
     		<form method="post" action="/MemberInformation/views/edit.jsp">
     			<input type="submit" name="edit" value="編集"><br>
     		</form>
-    		<form method="post" action="/MemberInformation/jp.co.aforce.servlet/delete">
+    		<form method="post" action="/MemberInformation/jp.co.aforce.servlet/delete" onSubmit="return check()">
     			<br>
     			<input type="submit" name="delete" value="削除">
     		</td>

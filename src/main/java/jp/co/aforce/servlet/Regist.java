@@ -14,8 +14,8 @@ import jp.co.aforce.dao.MemberInfoDAO;
 /**
  * Servlet implementation class Register
  */
-@WebServlet("/jp.co.aforce.servlet/register")
-public class Register extends HttpServlet {
+@WebServlet("/jp.co.aforce.servlet/regist")
+public class Regist extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -25,9 +25,9 @@ public class Register extends HttpServlet {
 			String last_name = request.getParameter("last_name");
 			String first_name = request.getParameter("first_name");
 			String gender = request.getParameter("gender");
-			String birth_year = /*Integer.parseInt*/request.getParameter("birth_year");
-			String birth_month = /*Integer.parseInt*/request.getParameter("birth_month");
-			String birth_day = /*Integer.parseInt*/request.getParameter("birth_day");
+			String birth_year = request.getParameter("birth_year");
+			String birth_month = request.getParameter("birth_month");
+			String birth_day = request.getParameter("birth_day");
 			String phone_number = request.getParameter("phone_number");
 			String email_address = request.getParameter("email_address");
 			String job = request.getParameter("job");
@@ -44,7 +44,7 @@ public class Register extends HttpServlet {
 			i.setJob(job);
 						
 			MemberInfoDAO dao = new MemberInfoDAO();
-			int line = dao.register(i);
+			int line = dao.regist(i);
 			
 			if (line == 1) {
 
@@ -52,11 +52,11 @@ public class Register extends HttpServlet {
 				MemberInfo info = dao2.id_search(email_address);
 				
 				request.setAttribute("member_id", info.getMemberId());
-				request.getRequestDispatcher("/views/register-success.jsp").forward(request, response);
+				request.getRequestDispatcher("/views/regist-success.jsp").forward(request, response);
 			}else {
 				//遷移できない
-				request.setAttribute("failure", "登録できませんでした。");
-				request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+				request.setAttribute("failure", "会員情報が登録できませんでした。");
+				request.getRequestDispatcher("/views/regist.jsp").forward(request, response);
 			}
 			
 		} catch (Exception e) {

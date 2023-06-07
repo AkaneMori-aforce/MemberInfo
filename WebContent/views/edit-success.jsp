@@ -2,11 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.html" %>
 
-<h2>会員情報登録完了</h2>
+<h2>会員情報更新完了</h2>
 
-<%String id = (String) request.getAttribute("member_id");%>
-
-会員番号：<%= id %><br>
+会員情報を更新しました。<br>
 
 <br>
 <a href="/MemberInformation/views/index.jsp" >トップ</a>

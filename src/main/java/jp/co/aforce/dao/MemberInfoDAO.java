@@ -9,7 +9,7 @@ import jp.co.aforce.bean.MemberInfo;
 public class MemberInfoDAO extends DAO {
 	
 	//registerメソッド：データの登録を行う
-	public int register(MemberInfo info) throws Exception {
+	public int regist(MemberInfo info) throws Exception {
 		Connection con = getConnection();
 		
 		PreparedStatement st = con.prepareStatement(
@@ -37,7 +37,7 @@ public class MemberInfoDAO extends DAO {
 	}
 	
 	//追加
-	//searchメソッド：データベースの検索を行う
+	//id_searchメソッド：データベースの検索を行う
 		public MemberInfo id_search(String email_address) throws Exception {
 			MemberInfo info = null;
 			
@@ -112,7 +112,7 @@ public class MemberInfoDAO extends DAO {
 		st.setString(7, info.getPhoneNumber());
 		st.setString(8, info.getEmailAddress());
 		st.setString(9, info.getJob());
-		st.setString(5, info.getMemberId());
+		st.setString(10, info.getMemberId());
 		int line = st.executeUpdate();
 		
 		st.close();
@@ -122,12 +122,12 @@ public class MemberInfoDAO extends DAO {
 	}
 	
 	//deleteメソッド：データの削除を行う
-	public int delete(int member_id) throws Exception {
+	public int delete(String member_id) throws Exception {
 		Connection con = getConnection();
 		
 		PreparedStatement st = con.prepareStatement(
 				"delete from member_info where member_id = ?");
-		st.setInt(1, member_id);
+		st.setString(1, member_id);
 		int line = st.executeUpdate();
 		
 		st.close();

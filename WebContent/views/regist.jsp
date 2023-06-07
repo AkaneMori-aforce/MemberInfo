@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../header.html" %>
-<script type="text/javascript" src="/js/script.js"></script>
 
 <h2>会員情報登録</h2>
 
-<form action="/MemberInformation/jp.co.aforce.servlet/register" method="post">
+<form action="/MemberInformation/jp.co.aforce.servlet/regist" method="post">
 <ul>
 <li>名前</li>
 姓<input type="text" name="last_name" placeholder="例：山田" style="width:80px" required>
@@ -33,7 +32,7 @@
 	<option value="700">その他</option>
 </select>
 </ul>
-<input type="submit" name="register" value="登録">
+<input type="submit" name="regist" value="登録">
 <input type="reset" name="reset" value="リセット">
 </form>
 
